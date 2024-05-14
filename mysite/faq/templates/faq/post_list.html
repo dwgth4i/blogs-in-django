@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog - Home</title>
+</head>
+<body>
+    <h1>Blog Posts</h1>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <a href="{% url 'post_detail' post.publish.year post.publish.month post.publish.day post.slug %}">{{ post.title }}</a>
+                in <a href="{% url 'category_list' post.category.slug %}">{{ post.category.name }}</a>
+                <p>Published on {{ post.publish }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

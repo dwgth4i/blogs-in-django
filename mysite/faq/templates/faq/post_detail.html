@@ -1,0 +1,14 @@
+<!-- myapp/templates/myapp/post_detail.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.title }}</title>
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+    <p>By {{ post.author }} on {{ post.publish }}</p>
+    <div>{{ post.body|linebreaks }}</div>
+    <a href="{% url 'post_list' %}">Back to Home</a>
+</body>
+</html>
