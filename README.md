@@ -8,3 +8,5 @@ python manage.py createsuperuser
 python manage.py makemigrations
 python manage.py migrate
 ```
+
+This is only for testing, idgaf about leaked key xd
