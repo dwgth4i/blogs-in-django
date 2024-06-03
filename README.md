@@ -8,5 +8,9 @@ python manage.py createsuperuser
 python manage.py makemigrations
 python manage.py migrate
 ```
+## Khởi động server local
+```
+python manage.py runserver
+```
 
 This is only for testing, idgaf about leaked key xd
