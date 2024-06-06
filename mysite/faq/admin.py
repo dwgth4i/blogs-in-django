@@ -3,8 +3,8 @@ from .models import Post, Category
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('question', 'username', 'email', 'author', 'publish', 'status')
-    list_filter = ('status', 'created', 'publish', 'author')
+    list_display = ('question', 'username', 'email', 'author', 'publish', 'status', 'ticket')
+    list_filter = ('status', 'created', 'publish', 'author', 'ticket')
     search_fields = ('question', 'body', 'username', 'email')
     prepopulated_fields = {'slug': ('question',)}
     raw_id_fields = ('author',)

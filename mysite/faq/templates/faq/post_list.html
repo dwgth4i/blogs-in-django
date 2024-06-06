@@ -6,6 +6,7 @@
         <li>
             <a href="{% url 'post_detail' post.publish.year post.publish.month post.publish.day post.slug %}">{{ post.question }}</a>
             <p>Category: {{ post.category.name }}</p>
+            
         </li>
     {% endfor %}
 </ul>
