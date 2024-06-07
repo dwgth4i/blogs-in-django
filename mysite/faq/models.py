@@ -11,6 +11,7 @@ class Category(models.Model):
         return self.name
 
 class Post(models.Model):
+    title = models.CharField(max_length=50, default="No title question")
     question = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique_for_date='publish')
     username = models.CharField(max_length=80, default='Anonymous')
