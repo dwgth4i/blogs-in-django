@@ -135,3 +135,9 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'alandota123456@gmail.com'
 EMAIL_HOST_PASSWORD = 'mulbvfnknfwlqbrd'
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    '/mysite/faq/static',
+]
