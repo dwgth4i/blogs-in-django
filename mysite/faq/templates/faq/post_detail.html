@@ -5,8 +5,14 @@
 <p>Category: {{ post.category.name }}</p>
 <p>Asked by {{ post.username }} on {{ post.publish }}</p>
 
-<h2>Answer</h2>
+<h2>Answer by Admin</h2>
 <p>{{ post.body|linebreaks }}</p>
+
+<h2>Comments</h2>
+{% for comment in comments %}
+    <p><strong>{{ comment.user }}</strong> said:</p>
+    <p>{{ comment.body|linebreaks }}</p>
+{% endfor %}
 
 {% if user == post.author or user.is_staff %}
     <h2>Leave a Comment</h2>
@@ -16,12 +22,6 @@
         <button type="submit">Add Comment</button>
     </form>
 {% endif %}
-
-<h2>Comments</h2>
-{% for comment in comments %}
-    <p><strong>{{ comment.user }}</strong> said:</p>
-    <p>{{ comment.body|linebreaks }}</p>
-{% endfor %}
 
 <a href="{% url 'post_list' %}">Back to Questions</a>
 {% endblock %}
