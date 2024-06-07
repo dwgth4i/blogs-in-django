@@ -1,9 +1,9 @@
 {% extends "faq/base.html" %}
 {% block content %}
-<h1>{{ post.question }}</h1>
+<h1>{{ post.title }}</h1>
+<h2>{{ post.question }}</h2>
 <p>Category: {{ post.category.name }}</p>
 <p>Asked by {{ post.username }} on {{ post.publish }}</p>
-<p>Ticket: {{ post.ticket }}</p>
 
 <h2>Answer</h2>
 <p>{{ post.body|linebreaks }}</p>

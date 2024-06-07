@@ -4,7 +4,7 @@
 <ul>
     {% for post in posts %}
         <li>
-            <a href="{% url 'post_detail' post.publish.year post.publish.month post.publish.day post.slug %}">{{ post.question }}</a>
+            <a href="{% url 'post_detail' post.publish.year post.publish.month post.publish.day post.ticket %}">{{ post.question }}</a>
             <p>Category: {{ post.category.name }}</p>
             
         </li>

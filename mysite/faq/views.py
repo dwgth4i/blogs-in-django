@@ -11,8 +11,8 @@ def post_list(request):
     return render(request, 'faq/post_list.html', {'posts': posts})
 
 
-def post_detail(request, year, month, day, slug):
-    post = get_object_or_404(Post, slug=slug, status='published', publish__year=year, publish__month=month, publish__day=day)
+def post_detail(request, year, month, day, ticket):
+    post = get_object_or_404(Post, status='published', publish__year=year, publish__month=month, publish__day=day, ticket=ticket)
     comments = post.comments.all()
 
     if request.method == 'POST':
@@ -22,7 +22,7 @@ def post_detail(request, year, month, day, slug):
             comment.post = post
             comment.user = request.user
             comment.save()
-            return redirect('post_detail', year=post.publish.year, month=post.publish.month, day=post.publish.day, slug=post.slug)
+            return redirect('post_detail', year=post.publish.year, month=post.publish.month, day=post.publish.day, ticket=post.ticket)
     else:
         comment_form = CommentForm()
 

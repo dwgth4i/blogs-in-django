@@ -8,6 +8,7 @@
         <ul>
             <li><a href="{% url 'post_list' %}">Home</a></li>
             {% if user.is_authenticated %}
+                <h2>Welcome {{user}}</h2>
                 <li><a href="{% url 'ask_question' %}">Ask a Question</a></li>
                 <li>
                     <form method="post" action="{% url 'logout' %}">
