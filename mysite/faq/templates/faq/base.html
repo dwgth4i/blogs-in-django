@@ -1,24 +1,28 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>FAQ Site</title>
+    
+    <link rel="stylesheet" href="{% static 'faq/css/style.css' %}" />
+
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="{% url 'post_list' %}">Home</a></li>
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li class="nav-item" id="head"><a href="{% url 'post_list' %}" class="nav-link">Home</a></li>
             {% if user.is_authenticated %}
-                <h2>Welcome {{user}}</h2>
-                <li><a href="{% url 'ask_question' %}">Ask a Question</a></li>
-                <li>
-                    <form method="post" action="{% url 'logout' %}">
+                <h2 class="welcome-message">Welcome {{user}}</h2>
+                <!-- <li class="nav-item"><a href="{% url 'ask_question' %}">Ask a Question</a></li> -->
+                <li class="nav-item">
+                    <form method="post" action="{% url 'logout' %}" class="logout-form">
                         {% csrf_token %}
-                        <button type="submit">Logout</button>
+                        <button type="submit" class="nav-button">Logout</button>
                     </form>
                 </li>
             {% else %}
-                <li><a href="{% url 'signup' %}">Sign Up</a></li>
-                <li><a href="{% url 'signin' %}">Sign In</a></li>
+                <li class="nav-item" id="head"><a href="{% url 'signup' %}" class="nav-link">Sign Up</a></li>
+                <li class="nav-item" id="head"><a href="{% url 'signin' %}" class="nav-link">Sign In</a></li>
             {% endif %}
         </ul>
     </nav>
