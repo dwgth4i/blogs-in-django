@@ -2,15 +2,18 @@
 <div class="ask_answer">
   <div class="over_ask">
     <div class="ask">
-      <h1>{{ post.title }}</h1>
-      <h2>{{ post.question }}</h2>
-      <p>Category: {{ post.category.name }}</p>
-      <p>Asked by {{ post.username }} on {{ post.publish }}</p>
+      <p class="category">Category: {{ post.category.name }}</p>
+      <h2>{{ post.title }}</h2>
+      <p>{{ post.question }}</p>
+
+      <i class="information">
+        Asked by {{ post.username }} on {{ post.publish }}
+      </i>
     </div>
   </div>
   <div class="over_answer">
     <div class="answer">
-      <h2>Answer by Admin</h2>
+      <p class="answer_by_ad">Answer by Admin</p>
       <p>{{ post.body|linebreaks }}</p>
     </div>
   </div>
