@@ -222,6 +222,9 @@ footer {
 }
 
 /* Post_detail */
+.whole {
+  align-items: center;
+}
 .ask_answer {
   justify-content: center;
   background-color: #fff;
@@ -266,4 +269,50 @@ footer {
 }
 .answer_by_ad {
   font-weight: bold;
+}
+
+/* Comment*/
+
+.comment {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+  width: 80%;
+  text-align: left;
+}
+
+.comment h2 {
+  margin-bottom: 20px;
+}
+
+.comment-item {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  border-left: 4px solid #00796b;
+}
+
+.comment-item p {
+  margin: 5px 0;
+}
+
+form {
+  margin-top: 20px;
+}
+
+button {
+  background-color: #00796b;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #005f56;
 }

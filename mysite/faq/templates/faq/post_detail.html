@@ -1,37 +1,41 @@
 {% extends "faq/base.html" %} {% block content %}
-<div class="ask_answer">
-  <div class="over_ask">
-    <div class="ask">
-      <p class="category">Category: {{ post.category.name }}</p>
-      <h2>{{ post.title }}</h2>
-      <p>{{ post.question }}</p>
+<div class="whole">
+  <div class="ask_answer">
+    <div class="over_ask">
+      <div class="ask">
+        <p class="category">Category: {{ post.category.name }}</p>
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.question }}</p>
 
-      <i class="information">
-        Asked by {{ post.username }} on {{ post.publish }}
-      </i>
+        <i class="information">
+          Asked by {{ post.username }} on {{ post.publish }}
+        </i>
+      </div>
+    </div>
+    <div class="over_answer">
+      <div class="answer">
+        <p class="answer_by_ad">Answer by Admin</p>
+        <p>{{ post.body|linebreaks }}</p>
+      </div>
     </div>
   </div>
-  <div class="over_answer">
-    <div class="answer">
-      <p class="answer_by_ad">Answer by Admin</p>
-      <p>{{ post.body|linebreaks }}</p>
+
+  <div class="comment">
+    <h2>Comments</h2>
+    {% for comment in comments %}
+    <div class="comment-item">
+      <p><strong>{{ comment.user }}</strong> said:</p>
+      <p>{{ comment.body|linebreaks }}</p>
     </div>
+    {% endfor %} {% if user == post.author or user.is_staff %}
+    <h2>Leave a Comment</h2>
+    <form method="post">
+      {% csrf_token %} {{ comment_form.as_p }}
+      <button type="submit">Add Comment</button>
+    </form>
+    {% endif %}
   </div>
-</div>
 
-<div class="comment">
-  <h2>Comments</h2>
-  {% for comment in comments %}
-  <p><strong>{{ comment.user }}</strong> said:</p>
-  <p>{{ comment.body|linebreaks }}</p>
-  {% endfor %} {% if user == post.author or user.is_staff %}
-  <h2>Leave a Comment</h2>
-  <form method="post">
-    {% csrf_token %} {{ comment_form.as_p }}
-    <button type="submit">Add Comment</button>
-  </form>
-  {% endif %}
+  <a href="{% url 'post_list' %}">Back to Questions</a>
+  {% endblock %}
 </div>
-
-<a href="{% url 'post_list' %}">Back to Questions</a>
-{% endblock %}
