@@ -10,6 +10,15 @@ def post_list(request):
     posts = Post.objects.filter(status='published').order_by('-publish')
     return render(request, 'faq/post_list.html', {'posts': posts})
 
+def post_list_by_category(request, category_slug):
+    category = get_object_or_404(Category, slug=category_slug)
+    posts = Post.objects.filter(category=category)
+    context = {
+        'category': category,
+        'posts': posts
+    }
+    return render(request, 'faq/post_list_by_category.html', context)
+
 
 def post_detail(request, year, month, day, ticket):
     post = get_object_or_404(Post, status='published', publish__year=year, publish__month=month, publish__day=day, ticket=ticket)

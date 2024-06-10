@@ -13,8 +13,8 @@ admin.site.site_header = "FAQ Administration"
 
 urlpatterns = [
     path('', views.post_list, name='post_list'),
-    path('<int:year>/<int:month>/<int:day>/<uuid:ticket>/', views.post_detail, name='post_detail'),
-    path('category/<slug:category_slug>/', views.category_list, name='category_list'),
+    path('<int:year>/<int:month>/<int:day>/<slug:ticket>/', views.post_detail, name='post_detail'),
+    path('category/<slug:category_slug>/', views.post_list_by_category, name='category_list'),
 
     path('ask/', views.ask_question, name='ask_question'),
     path('answer/<int:post_id>/', views.answer_question, name='answer_question'),

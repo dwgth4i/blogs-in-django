@@ -22,7 +22,7 @@ class Post(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=10, choices=[('draft', 'Draft'), ('published', 'Published')], default='draft')
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='posts')
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='post_category')
     answered = models.BooleanField(default=False)
     ticket = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
 
