@@ -1,6 +1,10 @@
 from django.contrib import admin
 from .models import Post, Category
 
+admin.site.site_header = "FAQ Administration"
+admin.site.site_title = "FAQ Admin Portal"
+admin.site.index_title = "Welcome to the FAQ Administration"
+
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title','question', 'username', 'email', 'author', 'publish', 'status', 'ticket')

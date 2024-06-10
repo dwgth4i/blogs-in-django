@@ -9,6 +9,9 @@
             <li><a href="{% url 'post_list' %}">Home</a></li>
             {% if user.is_authenticated %}
                 <h2>Welcome {{user}}</h2>
+                {% if user.is_staff %}
+                        <li><a href="{% url 'admin:index' %}">Admin Panel</a></li>
+                {% endif %}
                 <li><a href="{% url 'ask_question' %}">Ask a Question</a></li>
                 <li>
                     <form method="post" action="{% url 'logout' %}">
@@ -16,6 +19,7 @@
                         <button type="submit">Logout</button>
                     </form>
                 </li>
+                
             {% else %}
                 <li><a href="{% url 'signup' %}">Sign Up</a></li>
                 <li><a href="{% url 'signin' %}">Sign In</a></li>

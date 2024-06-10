@@ -21,5 +21,5 @@ admin.site.site_header = "FAQ Administration"
 
 urlpatterns = [
     path("", include("faq.urls")),
-    path("admin/", admin.site.urls),
+    path("Y29jb25jYWMK/", admin.site.urls),
 ]

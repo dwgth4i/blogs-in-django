@@ -91,12 +91,20 @@ def signin(request):
         form = AuthenticationForm()
     return render(request, 'faq/signin.html', {'form': form})
 
-from django.contrib.auth.views import PasswordResetView
+from django.contrib.auth import views as auth_views
 from django.urls import reverse_lazy
-from django.contrib.auth.forms import PasswordResetForm
 
-class CustomPasswordResetView(PasswordResetView):
-    template_name = 'registration/password_reset_form.html'
+class CustomPasswordResetView(auth_views.PasswordResetView):
+    template_name = 'faq/password_reset_form.html'
+    email_template_name = 'faq/password_reset_email.html'
     success_url = reverse_lazy('password_reset_done')
-    form_class = PasswordResetForm
-    email_template_name = 'registration/password_reset_email.html'
+
+class CustomPasswordResetDoneView(auth_views.PasswordResetDoneView):
+    template_name = 'faq/password_reset_done.html'
+
+class CustomPasswordResetConfirmView(auth_views.PasswordResetConfirmView):
+    template_name = 'faq/password_reset_confirm.html'
+    success_url = reverse_lazy('password_reset_complete')
+
+class CustomPasswordResetCompleteView(auth_views.PasswordResetCompleteView):
+    template_name = 'faq/password_reset_complete.html'
