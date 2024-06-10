@@ -24,7 +24,11 @@
     <h2>Comments</h2>
     {% for comment in comments %}
     <div class="comment-item">
-      <p><strong>{{ comment.user }}</strong> said:</p>
+      {% if comment.user.is_staff %}
+      <p><strong>Answer by admin:</strong> {{ comment.content }}</p>
+      {% else %}
+      <p><strong>{{ post.username }}:</strong> {{ comment.content }}</p>
+      {% endif %}
       <p>{{ comment.body|linebreaks }}</p>
     </div>
     {% endfor %} {% if user == post.author or user.is_staff %}
