@@ -15,15 +15,15 @@ form.ask-form {
     }
   }
 }
-form.signup-form{
-  p{
-    display:grid;
-    margin-left:25px;
+form.signup-form {
+  p {
+    display: grid;
+    margin-left: 25px;
   }
 }
-form.signin-form{
-  p{
-    margin-left:25px;
+form.signin-form {
+  p {
+    margin-left: 25px;
   }
 }
 
@@ -201,8 +201,8 @@ form input[type="email"]:focus {
 }
 
 .nav-button {
-  FONT-WEIGHT: 600;
-  font-size: 1.0em;
+  font-weight: 600;
+  font-size: 1em;
   top: 35px;
   right: 10px;
   position: absolute;
@@ -253,7 +253,7 @@ footer {
 
 /* Post_detail */
 .whole {
-  padding-left: 140px;
+  padding-left: 190px;
   align-items: center;
   display: grid;
 }
