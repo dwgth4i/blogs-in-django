@@ -1,0 +1,29 @@
+.wholee {
+  align-items: center;
+  display: block;
+  margin-top: 50px;
+  justify-content: center;
+  padding-left: 0px;
+  text-align: center;
+}
+.headerr {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 20px;
+  text-align: center;
+}
+.list_of_posts {
+  padding-left: 35%;
+}
+.list_of_posts2 {
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Đổ bóng cho từng câu hỏi */
+  width: 500px /* Chiều rộng của từng câu hỏi */;
+  text-align: center;
+  word-wrap: break-word;
+  justify-content: center;
+  list-style-type: none;
+}

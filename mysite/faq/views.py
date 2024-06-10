@@ -64,10 +64,14 @@ def answer_question(request, post_id):
         form = PostForm(instance=post)
     return render(request, 'faq/answer_question.html', {'form': form})
 
-def category_list(request, category_slug):
+def post_list_by_category(request, category_slug):
     category = get_object_or_404(Category, slug=category_slug)
-    posts = Post.objects.filter(category=category, status='published').order_by('-publish')
-    return render(request, 'faq/category_list.html', {'category': category, 'posts': posts})
+    posts = Post.objects.filter(category=category)
+    context = {
+        'category': category,
+        'posts': posts
+    }
+    return render(request, 'faq/post_list_by_category.html', context)
 
 def signup(request):
     if request.method == 'POST':

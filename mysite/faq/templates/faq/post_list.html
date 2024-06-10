@@ -1,20 +1,27 @@
-{% extends "faq/base.html" %}
-{% block content %}
+{% extends "faq/base.html" %} {% block content %}
 <div class="box-FAQ">
-    <h1 class="header-FAQ">FAQs</h1>
+  <h1 class="header-FAQ">FAQs</h1>
 </div>
 <div class="page">
-    <div class="list-container">
-        <ul class="ul-post">
-            {% for post in posts %}
-                <li class="li-post">
-                    <a href="{% url 'post_detail' post.publish.year post.publish.month post.publish.day post.ticket %}" class="link">{{ post.question }}</a>
-                    <p>Category: {{ post.category.name }}</p>
-                    
-                </li>
-            {% endfor %}
-        </ul>
-        <a href="{% url 'ask_question' %}" class="link">Ask a Question</a>
-    </div>
-{% endblock %}
+  <div class="list-container">
+    <ul class="ul-post">
+      {% for post in posts %}
+      <li class="li-post">
+        <a
+          href="{% url 'post_detail' post.publish.year post.publish.month post.publish.day post.ticket %}"
+          class="link"
+          >{{ post.question }}</a
+        >
+        <p>
+          Category:
+          <a href="{% url 'category_list' post.category.slug %}"
+            >{{ post.category.name }}</a
+          >
+        </p>
+      </li>
+      {% endfor %}
+    </ul>
+    <a href="{% url 'ask_question' %}" class="link">Ask a Question</a>
+  </div>
+  {% endblock %}
 </div>
