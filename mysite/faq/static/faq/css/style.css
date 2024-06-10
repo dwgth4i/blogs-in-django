@@ -7,11 +7,13 @@ body {
   background-color: #fbfbfb;
   color: #2f353b;
 }
-
+form.ask-from p {
+  display: inline-block;
+}
 form input[type="text"],
 form input[type="password"],
 form input[type="email"] {
-  width: 100%;
+  width: 80%;
   padding: 10px;
   margin-top: 1rem;
   border: 1px solid;
@@ -220,10 +222,15 @@ footer {
   width: 100%;
   bottom: 0;
 }
+/* error */
+.errorlist {
+  color: red;
+}
 
 /* Post_detail */
 .whole {
   align-items: center;
+  display: grid;
 }
 .ask_answer {
   justify-content: center;

@@ -1,10 +1,8 @@
-{% extends "faq/base.html" %}
-{% block content %}
+{% extends "faq/base.html" %} {% block content %}
 <h1>Ask a Question</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Submit Question</button>
+<form method="post" class="ask-form">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit">Submit Question</button>
 </form>
 <a href="{% url 'post_list' %}">Back to Questions</a>
 {% endblock %}

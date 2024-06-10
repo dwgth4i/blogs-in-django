@@ -28,10 +28,25 @@
       <p>{{ comment.body|linebreaks }}</p>
     </div>
     {% endfor %} {% if user == post.author or user.is_staff %}
-    <h2>Leave a Comment</h2>
     <form method="post">
-      {% csrf_token %} {{ comment_form.as_p }}
-      <button type="submit">Add Comment</button>
+      {% csrf_token %}
+      <textarea
+        placeholder="Leave a comment"
+        name="body"
+        cols="40"
+        rows="10"
+        required=""
+        id="id_body"
+        style="
+          min-width: 1094px;
+          height: 63px;
+          resize: none;
+          font-size: 15px;
+          border-radius: 10px;
+          border: 1px solid #111111;
+        "
+      ></textarea>
+      <button type="submit" style="display: block">Add Comment</button>
     </form>
     {% endif %}
   </div>

@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-
+admin.site.site_header = "FAQ Admin"
 urlpatterns = [
     path("", include("faq.urls")),
     path("admin/", admin.site.urls),
