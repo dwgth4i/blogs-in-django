@@ -1,6 +1,9 @@
 from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_views
+from django.contrib import admin
+
+admin.site.site_header = "FAQ Admin"
 
 urlpatterns = [
     path('', views.post_list, name='post_list'),
