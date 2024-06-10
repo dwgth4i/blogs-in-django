@@ -3,8 +3,8 @@
 <html>
   <head>
     <title>FAQ Site</title>
-
     <link rel="stylesheet" href="{% static 'faq/css/style.css' %}" />
+    <script src="{% static 'faq/js/app.js' %}"></script> 
   </head>
   <body>
     <nav class="navbar">
@@ -13,8 +13,10 @@
           <a href="{% url 'post_list' %}" class="nav-link">Home</a>
         </li>
         {% if user.is_authenticated %}
+        {% if user.is_staff %}
+            <li class="nav-item" id="head"><a href="{% url 'admin:index' %}" class="nav-link">Admin</a></li>
+        {% endif %}
         <h2 class="welcome-message">Welcome {{user}}</h2>
-        <!-- <li class="nav-item"><a href="{% url 'ask_question' %}">Ask a Question</a></li> -->
         <li class="nav-item">
           <form method="post" action="{% url 'logout' %}" class="logout-form">
             {% csrf_token %}
